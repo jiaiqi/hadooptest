@@ -6,6 +6,7 @@ import home from '@/pages/home'
 import oneCardPass from '@/pages/oneCardPass'
 import hData from '@/pages/hData'
 import hadoop1 from '@/pages/hadoop'
+import hadoop2 from '@/pages/hadoop/test2'
 import hadoop from '@/pages/hadoop/test1'
 
 Vue.use(Router)
@@ -52,7 +53,11 @@ export default new Router({
       path: '/hadoop',
       name: 'hadoop',
       component: hadoop
-
+    },
+    {
+      path: '/hadoop2',
+      name: 'hadoop2',
+      component: hadoop2
     }
   ]
 })

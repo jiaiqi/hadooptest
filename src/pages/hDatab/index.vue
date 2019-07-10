@@ -12,7 +12,9 @@
                     <div class="sub-title">
                             2018办案统计
                     </div>
-                        <div class="data-view" id="myChartLeftBottomb" :style="{width: '99%', height: '1000px'}"></div>
+                    
+                    <!-- <div  class="data-view"  id="myChartTop" :style="{width: '98%', height: '900px'}"></div> -->
+                    <div id="myChartCBottom" :style="{width: '98%', height: '800px'}"></div>
                     <div class="sub-title">
                         公益诉讼情况
                     </div>
@@ -22,20 +24,37 @@
                 <div class="main-center">
                     <div class="main-content-body">
                         <div class="body-left">
-                                <div class="sub-title">
-                                    刑事诉讼监督
-                                </div>
-                                <div id="myMap" :style="{width: '100%', height: '1900px'}"></div>
+                            <div class="sub-title">
+                                检查办案统计
+                            </div>
+                            <div id="myMap" :style="{width: '100%', height: '1800px'}"></div>
                         </div>
                         <div class="body-center" :style="{width: '65%'}">
-                            <div class="sub-title">
-                                刑事诉讼监督情况
+                            <div  :style="{width: '99%', height: '120px'}">
+                        
                             </div>
-                             <div  class="data-view" id="myChartTop" :style="{width: '98%', height: '1000px'}"></div>
-                             <div class="sub-title">
+                            <div class="text-list" :style="{width: '99%', height: '800px'}">
+                                <div class="text-title">全市2018年共办案: <span>680起</span></div>
+                                <div>
+                                    
+                                    <div class="text-view">
+                                        <div>117起<span>逮捕案件</span></div>
+                                        <div>168起<span>公诉案件</span></div>
+                                        <div>197起<span>民事案件</span></div>
+                                        <div>68起<span>行政案件</span></div>
+                                    </div>
+                                    <div class="text-view">
+                                        <div>79起<span>公益案件</span></div>
+                                        <div>36起<span>执检案件</span></div>
+                                        <div>56起<span>其他案件</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div  id="myChartCBottom" :style="{width: '98%', height: '800px'}"></div> -->
+                             <!-- <div class="sub-title">
                                 案件处理
-                            </div>
-                            <div  class="data-view" id="myChartCBottom" :style="{width: '98%', height: '800px'}"></div>
+                            </div> -->
+                            <div id="myChartLeftBottomb" :style="{width: '99%', height: '900px'}"></div>
                         </div>
                     </div>
                 </div>
@@ -43,7 +62,7 @@
                     <div class="sub-title">
                                 办案工作统计
                             </div>
-                    <div class="data-view" id="myChartRight" :style="{width: '100%', height: '1000px'}"></div>
+                    <div class="data-view" id="myChartRight" :style="{width: '100%', height: '900px'}"></div>
                     <div class="sub-title">
                                 依法打击刑事
                             </div>
@@ -71,7 +90,114 @@ export default {
   },
   data(){
   	return{
-        icons: icons
+        icons: icons,
+        mySelected: 0,
+        mapLocation: [
+            {
+                name: '独山子区',
+                value: 85,
+                selected: false,
+                infoData:[{
+                    'name': '逮捕案件',
+                    'value': 1
+                }, {
+                    'name': '公诉案件',
+                    'value': 26
+                }, {
+                    'name': '民事案件',
+                    'value': 1
+                }, {
+                    'name': '行政案件',
+                    'value': 32
+                }, {
+                    'name': '公益案件',
+                    'value': 5
+                }, {
+                    'name': '执检案件',
+                    'value': 9
+                }, {
+                    'name': '其他案件',
+                    'value': 11
+                }]
+            },
+            {
+                name: '克拉玛依区',
+                value: 70,
+                infoData:[{
+                    'name': '逮捕案件',
+                    'value': 1
+                }, {
+                    'name': '公诉案件',
+                    'value': 26
+                }, {
+                    'name': '民事案件',
+                    'value': 1
+                }, {
+                    'name': '行政案件',
+                    'value': 22
+                }, {
+                    'name': '公益案件',
+                    'value': 5
+                }, {
+                    'name': '执检案件',
+                    'value': 8
+                }, {
+                    'name': '其他案件',
+                    'value': 7
+                }]
+            }, {
+                name: '白碱滩区',
+                value: 75,
+                selected: false,
+                infoData:[{
+                    'name': '逮捕案件',
+                    'value': 9
+                }, {
+                    'name': '公诉案件',
+                    'value': 16
+                }, {
+                    'name': '民事案件',
+                    'value': 1
+                }, {
+                    'name': '行政案件',
+                    'value': 32
+                }, {
+                    'name': '公益案件',
+                    'value': 2
+                }, {
+                    'name': '执检案件',
+                    'value': 8
+                }, {
+                    'name': '其他案件',
+                    'value': 7
+                }]
+            }, {
+                name: '乌尔禾区',
+                value: 120,
+                selected: false,
+                infoData:[{
+                    'name': '逮捕案件',
+                    'value': 20
+                }, {
+                    'name': '公诉案件',
+                    'value': 21
+                }, {
+                    'name': '民事案件',
+                    'value': 11
+                }, {
+                    'name': '行政案件',
+                    'value': 32
+                }, {
+                    'name': '公益案件',
+                    'value': 3
+                }, {
+                    'name': '执检案件',
+                    'value': 17
+                }, {
+                    'name': '其他案件',
+                    'value': 16
+                }]
+        }]
   	}
   },
   created(){
@@ -80,9 +206,9 @@ export default {
   mounted(){
       
       this.myChartLeftTop()
-      this.myChartLeftBottomb()
-      this.getMyMap()
-      this.myChartTop()
+      this.myChartLeftBottomb(this.mapLocation[this.mySelected])
+      this.getMyMap(this.mySelected)
+    //   this.myChartTop()
       this.myChartCBottom()
       this.myChartRight()
       this.myChartRightBottom()
@@ -91,13 +217,13 @@ export default {
   },
   methods:{
       myChartRightBottom(){
-          var giftImageUrl = "data:image/png;base64,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"
-            var chartName= ['审查逮捕案', '审查起诉案', '不批准逮捕'];
-            var chartData= ['537','698','321']
-            var data=[]
-            var legendName=[]
-            for (var i=0;i<chartData.length;i++){
-                var c={
+          let giftImageUrl = icons.dataIcon
+        let chartName= ['审查逮捕案', '审查起诉案', '不批准逮捕'];
+        let chartData= ['537','698','321']
+        let data=[]
+        let legendName=[]
+            for (let i=0;i<chartData.length;i++){
+                let c={
                     value:chartData[i],
                     name:chartName[i]+chartData[i]
                 }
@@ -189,43 +315,22 @@ export default {
                 }]
             })
         },
-      myChartLeftBottomb(){
-          let datas = [{
-                'name': '逮捕案件',
-                'value': 1
-            }, {
-                'name': '公诉案件',
-                'value': 0
-            }, {
-                'name': '民事案件',
-                'value': 1
-            }, {
-                'name': '行政案件',
-                'value': 3
-            }, {
-                'name': '公益案件',
-                'value': 5
-            }, {
-                'name': '执检案件',
-                'value': 0
-            }, {
-                'name': '其他案件',
-                'value': 2
-            }]
+      myChartLeftBottomb(e){
+          let datas = e.infoData
             let total_datas = 0;
             for (let i = 0; i < datas.length; i++) {
                 total_datas += datas[i].value
             }
           let myChartLeftBottomb = this.$echarts.init(document.getElementById('myChartLeftBottomb'))
           myChartLeftBottomb.setOption({
-            color: ['#FF8352', '#E271DE', '#00FFFF', '#4AEAB0', '#31C5C0', '#1E9BD1', '#009D85'],
+            color: ['#fb4cdc', '#a64cfb', '#4c86fb', '#4ce4fb', '#4cfbc3', '#a6fb4c', '#fbcc4c'],
             // backgroundColor: '#012A5C',
             title: {
-                text: '总数',
-                subtext: total_datas,
+                text: e.name,
+                subtext: '总数' + total_datas,
                 textStyle: {
                     color: '#f2f2f2',
-                    fontSize: 60,
+                    fontSize: 55,
                     align: 'center'
                 },
                 subtextStyle: {
@@ -262,7 +367,7 @@ export default {
             series: [
                 // 主要展示层的
                 {
-                    radius: ['30%', '61%'],
+                    radius: ['30%', '55%'],
                     center: ['50%', '50%'],
                     type: 'pie',
                     label: {
@@ -330,7 +435,7 @@ export default {
                     clockWise: false, //顺时加载
                     hoverAnimation: false, //鼠标移入变大
                     center: ['50%', '50%'],
-                    radius: ['65%', '65%'],
+                    radius: ['59%', '60%'],
                     label: {
                         normal: {
                             show: false
@@ -918,7 +1023,7 @@ let y2Data = [175,117,83,30,25,20];
       },
       myChartTop(){
           let cost = [0.2, 0.201, 1,0.2,1]//本期比上期（大于1按1处理）
-            let dataCost = [24,26,147,8,27]//数量
+            let dataCost = [24,26,36,8,27]//数量
             let totalCost = [1, 1, 1, 1, 1]//比例综合
             let visits = [92, 102, 89, 6, 21]//本期占总的百分比*100
             let grade = ['不批捕', '不起诉', '退回补充侦查', '追诉犯罪嫌疑人', '诉遗漏犯罪事实']
@@ -1044,23 +1149,17 @@ let y2Data = [175,117,83,30,25,20];
             }]
         })
       },
-      getMyMap(){
-        //   let myJson ='../../../static/data/kelamayi.json'
-          let data =  [
-            {
-                name: '独山子区',
-                value: 85
-            },
-            {
-                name: '克拉玛依区',
-                value: 70
-            }, {
-                name: '白碱滩区',
-                value: 75
-            }, {
-                name: '乌尔禾区',
-                value: 120
-            }];
+      getMyMap(n){
+        //   let myJson ='../../../static/data/kelamayi.json'+
+          let self = this
+          console.log('n:' + n)
+          for(let i = 0;i<self.mapLocation.length;i++){
+                if (n === i){
+                    self.mapLocation[i].selected = true
+                }else{
+                    self.mapLocation[i].selected = false
+                }
+            }
         let getMyMap = this.$echarts.init(document.getElementById('myMap'))
         this.$echarts.registerMap('kelamayi', maps)
         getMyMap.setOption({
@@ -1073,6 +1172,10 @@ let y2Data = [175,117,83,30,25,20];
                     fontSize:50,
                     lineHeight:80
                 }
+            },
+            grid:{
+                left:'20%',
+                right:0
             },
             zoom: 1.2,
             visualMap: { //颜色的设置  dataRange
@@ -1113,73 +1216,114 @@ let y2Data = [175,117,83,30,25,20];
                 },
             },
             series: [{
-                    name: 'kelamayi',
-                    type: 'effectScatter',
-                    coordinateSystem: 'geo',
-                    data: this.convertData(data),
-                    symbolSize: function(val) {
-                        return val[2] * 0.8;
-                    },
-                    zoom: 1.2,
-                    tooltip:{
-                        show:false
-                    },
-                    showEffectOn: 'render',
-                    rippleEffect: {
-                        brushType: 'stroke'
-                    },
-                    hoverAnimation: false,
-                    label: {
-                        normal: {
-                            formatter: '{b}',
-                            position: 'bottom',
-                            color:'#fff',
-                            fontSize:60,
-                            show: true
-                        }
-                    },
-                    itemStyle: {
-                        normal: {
-                            color: '#eed007',
-                            shadowBlur: 5,
-                            shadowColor: '#05C3F9'
-                        }
-                    },
-                    zlevel: 5
-                }, {
-                    name:'办案统计',
-                    type: 'map',
-                    mapType: 'kelamayi',
-                    zoom: 1.2,
-                    roam: false, //是否开启鼠标缩放和平移漫游
-                    itemStyle: { //地图区域的多边形 图形样式
-                        // color: ['rgb(11,85,142)', 'rgb(13,106,177)'],
-                        normal: { //是图形在默认状态下的样式
-                            label: {
-                                show: true, //是否显示标签
-                                textStyle: {
-                                    color: 'transparent'
-                                },
+                name: 'kelamayi',
+                type: 'effectScatter',
+                coordinateSystem: 'geo',
+                data: this.convertData(this.mapLocation),
+                symbolSize: function(val) {
+                    return val[2] * 0.8;
+                },
+                zoom: 1.2,
+                tooltip:{
+                    show:false
+                },
+                showEffectOn: 'render',
+                rippleEffect: {
+                    brushType: 'stroke'
+                },
+                hoverAnimation: false,
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        position: 'bottom',
+                        color:'#fff',
+                        fontSize:60,
+                        show: true
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#eed007',
+                        shadowBlur: 5,
+                        shadowColor: '#05C3F9'
+                    }
+                },
+                zlevel: 5
+            }, {
+                name:'办案统计',
+                type: 'map',
+                mapType: 'kelamayi',
+                zoom: 1.2,
+                selectedMode : 'multiple',
+                roam: false, //是否开启鼠标缩放和平移漫游
+                itemStyle: { //地图区域的多边形 图形样式
+                    // color: ['rgb(11,85,142)', 'rgb(13,106,177)'],
+                    normal: { //是图形在默认状态下的样式
+                        label: {
+                            show: true, //是否显示标签
+                            textStyle: {
+                                color: 'transparent'
                             },
-                            borderWidth: 8,
-                            borderColor: '#a4dcff',
-                            areaColor: '#2727b3',
                         },
-                        emphasis: { //是图形在高亮状态下的样式,比如在鼠标悬浮或者图例联动高亮时
-                            label: {
-                                show: true,
-                                textStyle: {
-                                    color: 'transparent'
-                                },
-                            },
-                            borderColor: '#ccffff',
-                            areaColor: '#3366ff',
-                        }
+                        borderWidth: 8,
+                        borderColor: '#a4dcff',
+                        areaColor: '#47abff',
                     },
-                    data: data
-                }
-            ]
+                    emphasis: { //是图形在高亮状态下的样式,比如在鼠标悬浮或者图例联动高亮时
+                        label: {
+                            show: true,
+                            textStyle: {
+                                color: 'transparent'
+                            },
+                        },
+                        borderColor: '#ccffff',
+                        areaColor: '#2727b3',
+                    }
+                },
+                data: self.mapLocation
+            }]
         })
+        
+            
+            
+            getMyMap.dispatchAction({
+                type: 'showTip',
+                seriesIndex:1 ,//第几条series
+                dataIndex: n,//第几个tooltip
+            })
+            console.log("a: "+ n ,self.mapLocation.length);
+        // self.mapLocation.forEach((item,index)=>{
+        //     if (index === n ){
+        //         getMyMap.dispatchAction({
+        //             type: 'showTip',
+        //             seriesIndex:1 ,//第几条series
+        //             dataIndex:n,//第几个tooltip
+        //         })
+        //         item.selected = true
+        //     }else{
+        //         item.selected = false
+        //     }
+            
+        // })
+             self.myChartLeftBottomb(self.mapLocation[n])
+             if(n === 0){
+                //  self.getMyMap(n)
+                setTimeout(()=>{
+                    if(n <  self.mapLocation.length - 1){
+                        this.mySelected++
+                    } else {
+                        this.mySelected = 0
+                    }
+                },2000)
+             }else {
+                 setTimeout(()=>{
+                    if(n <  self.mapLocation.length - 1){
+                        this.mySelected++
+                    } else {
+                        this.mySelected = 0
+                    }
+                },2000)
+             }
       },
       convertData:function(data) {
         var res = [];
@@ -1318,25 +1462,77 @@ let y2Data = [175,117,83,30,25,20];
         options.xAxis.axisLabel.textStyle.color = '#ffffff'
         return options
     }
-  }
+  },
+  watch: {
+      mySelected(val, oldVal){//普通的watch监听+
+        let self = this
+        setTimeout(function(){
+            self.getMyMap(val)
+        },2000)
+        console.log('b:' + val)
+     },
+  },
 }
 </script>
 
 <style lang="scss">
 .data-page{
-	background: url(../../assets/data/trued.png) repeat;
-    background-size: 100% 100%;
+	background: url(../../assets/img/wrapper-bg.png) no-repeat;
+    background-position:center bottom;
+    background-size: 100% 98%;
+    padding:0 1rem;
 	top: 0;
 	right: 0;
 	right: 0;
 	bottom: 0;
 	height: 2160px;
     min-width: 6100px;
-    background-color: #2C58A6;
+    background-color: rgb(0, 47, 129);
+    
+    .text-list{
+        .text-title{
+            width: 100%;
+            text-align: center;
+            color: #d5edff;
+            font-size:80px;
+            >span{
+                font-size:120px;
+            }
+        }
+        >div{
+            padding:10px 350px;
+        }
+        .text-view{
+            height: 350px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            >div{
+                height: 340px;
+                width: 340px;
+                padding: 10px;
+                background: url(../../assets/data/hunzhang.png) no-repeat;
+                background-position:center center;
+                background-size: 100% 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-content: center;
+                text-align: center;
+                font-size:70px;
+                color: #e0f1ff;
+                >span{
+                color: #70c1ff;
+                    font-size:50px;
+                }
+            }
+        }
+    }
     >.title{
-        background: url(../../assets/data/title.png) no-repeat;
-        background-position:center center;
-        background-size: 80% 90%;
+        // background: url(../../assets/data/title.png) no-repeat;
+        background-position:center bottom;
+        background-size: 100% 90%;
         color:#ddf0ff;
         font-size: 100px;
         height: 120px;
@@ -1366,7 +1562,7 @@ let y2Data = [175,117,83,30,25,20];
             display: flex;
              flex-direction: row;
              #myMap{
-                background: url(../../assets/data/left_one2.png) no-repeat;
+                // background: url(../../assets/data/left_one2.png) no-repeat;
                 border-bottom: 2px solid #1059c79c;
                 background-position:left center;
                 background-size: 100% 100%;
@@ -1376,7 +1572,7 @@ let y2Data = [175,117,83,30,25,20];
                 //  background-color: rgba(12, 125, 190, 0.644);
                  height: 100%;
                  .sub-title{
-                    background: url(../../assets/data/menu_top.png) no-repeat;
+                    background: url(../../assets/img/title-bg.png) no-repeat;
                     border-bottom: 2px solid #1059c79c;
                     background-position:left center;
                     background-size: 40% 100%;
